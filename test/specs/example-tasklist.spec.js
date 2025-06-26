@@ -1,11 +1,11 @@
 import { initialiseAccessibilityChecking, analyseAccessibility, generateAccessibilityReports } from '../accessibility-checking.js'
 import { continueJourney, ensureUrl, selectOption, selectTask } from '../journey-actions.js'
 
-describe('Adding Value Task List', () => {
-  it('should analyse accessibility on sample Adding Value Task List pages', async () => {
+describe('Example Task List', () => {
+  it('should analyse accessibility on sample Example Task List pages', async () => {
     await initialiseAccessibilityChecking()
 
-    await browser.url('/adding-value-tasklist/tasklist')
+    await browser.url('/example-tasklist/tasklist')
 
     // tasklist
     await ensureUrl('tasklist')

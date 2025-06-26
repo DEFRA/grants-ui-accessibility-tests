@@ -2,8 +2,8 @@
 
 This test suite is maintained by Grants Application Enablement (GAE) team, generating accessibility reports for:
 
-- Non-land based grant application journeys served by grants-ui
-- Reusable grants-ui components maintained by GAE
+- Non-land based grant application journeys served by `grants-ui`
+- Reusable `grants-ui` components maintained by GAE
 
 The tests do not assert but will generate reports detailing WCAG violations and recommendations for each journey. The suite uses WebdriverIO with the Defra CCTS WCAG checker library. See https://dev.azure.com/defragovuk/CCTS-QA%20Automation/_wiki/wikis/CCTS-QA-Automation.wiki/31058/WCAG-Checker-for-accessibility-automation.
 
