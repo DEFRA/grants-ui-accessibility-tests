@@ -76,8 +76,6 @@ describe('example-grant-with-auth', () => {
     await enterValueFor('Option three', 'Select option')
     await continueJourney()
 
-
-
         // # multiline-text-field
         // Then the user should be at URL "multiline-text-field"
         // When the user enters "Lorem ipsum" for MultilineTextField "MultilineTextField Example"
@@ -154,6 +152,6 @@ describe('example-grant-with-auth', () => {
         // Then the user should be at URL "status"
         // And should see heading "Form submitted"
 
-    generateAccessibilityReports('adding-value')
+    generateAccessibilityReports('example-grant-with-auth')
   });
 });

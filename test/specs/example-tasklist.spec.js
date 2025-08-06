@@ -41,6 +41,6 @@ describe('example-tasklist', () => {
     await ensureUrl('business-status/summary')
     await analyseAccessibility()
 
-    generateAccessibilityReports('adding-value-tasklist')
+    generateAccessibilityReports('example-tasklist')
   });
 });
