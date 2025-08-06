@@ -81,6 +81,10 @@ export async function setMonthYearField(id, month, year) {
     await yearSelector.setValue(year)
 }
 
+export async function setTextarea(id, value) {
+    await $(`//textarea[@id='${id}']`).setValue(value)
+}
+
 export async function startJourney() {
     await $(`aria/Start now`).click()
 }
