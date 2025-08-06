@@ -1,11 +1,12 @@
 import { initialiseAccessibilityChecking, analyseAccessibility, generateAccessibilityReports } from '../accessibility-checking.js'
-import { continueJourney, ensureUrl, navigateBack, selectOption, startJourney, submitApplication } from '../journey-actions.js'
+import { continueJourney, ensureUrl, loginIfRequired, navigateBack, selectRadio, startJourney, submitApplication } from '../journey-actions.js'
 
-describe('Example Grant', () => {
-  it('should analyse accessibility on all Example Grant pages', async () => {
+describe('example-grant', () => {
+  it('should analyse accessibility on all example-grant pages', async () => {
     await initialiseAccessibilityChecking()
 
     await browser.url('/example-grant/start')
+    await loginIfRequired()
 
     // start
     await ensureUrl('start')
@@ -15,7 +16,7 @@ describe('Example Grant', () => {
     // are-you-in-england
     await ensureUrl('are-you-in-england')
     await analyseAccessibility()
-    await selectOption('No')
+    await selectRadio('No')
     await continueJourney()
 
     // you-must-be-in-england
@@ -25,13 +26,13 @@ describe('Example Grant', () => {
 
     // are-you-in-england
     await ensureUrl('are-you-in-england')
-    await selectOption('Yes')
+    await selectRadio('Yes')
     await continueJourney()
 
     // what-is-your-business
     await ensureUrl('what-is-your-business')
     await analyseAccessibility()
-    await selectOption('A grower or producer of agricultural or horticultural produce'),
+    await selectRadio('A grower or producer of agricultural or horticultural produce'),
     await continueJourney()
 
     // summary

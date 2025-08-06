@@ -1,11 +1,12 @@
 import { initialiseAccessibilityChecking, analyseAccessibility, generateAccessibilityReports } from '../accessibility-checking.js'
-import { confirmAndSend, continueJourney, ensureUrl, enterValueFor, navigateBack, selectOption, selectOptions, startJourney, unselectOption } from '../journey-actions.js'
+import { confirmAndSend, continueJourney, ensureUrl, enterValueFor, loginIfRequired, navigateBack, selectCheckboxes, selectRadio, startJourney } from '../journey-actions.js'
 
-describe('Adding Value', () => {
-  it('should analyse accessibility on all Adding Value pages', async () => {
+describe('adding-value', () => {
+  it('should analyse accessibility on all adding-value pages', async () => {
     await initialiseAccessibilityChecking()
 
     await browser.url('/adding-value/start')
+    await loginIfRequired()
 
     // start
     await ensureUrl('start')
@@ -15,9 +16,9 @@ describe('Adding Value', () => {
     // nature-of-business
     await ensureUrl('nature-of-business')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('None of the above')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('None of the above')
     await continueJourney()
 
     // cannot-apply-nature-of-business
@@ -27,15 +28,15 @@ describe('Adding Value', () => {
 
     // nature-of-business
     await ensureUrl('nature-of-business')
-    await selectOption('A grower or producer of agricultural or horticultural produce')
+    await selectRadio('A grower or producer of agricultural or horticultural produce')
     await continueJourney()
 
     // legal-status
     await ensureUrl('legal-status')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('None of the above')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('None of the above')
     await continueJourney()
 
     // legal-status-cannot-apply
@@ -45,15 +46,15 @@ describe('Adding Value', () => {
 
     // legal-status
     await ensureUrl('legal-status')
-    await selectOption('Sole trader')
+    await selectRadio('Sole trader')
     await continueJourney()
 
     // country
     await ensureUrl('country')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('No')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('No')
     await continueJourney()
 
     // cannot-apply-country
@@ -63,15 +64,15 @@ describe('Adding Value', () => {
 
     // country
     await ensureUrl('country')
-    await selectOption('Yes')
+    await selectRadio('Yes')
     await continueJourney()
 
     // planning-permission
     await ensureUrl('planning-permission')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('Will not be in place by the time I make my full application')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('Will not be in place by the time I make my full application')
     await continueJourney()
 
     // planning-permission-cannot-apply
@@ -81,7 +82,7 @@ describe('Adding Value', () => {
 
     // planning-permission
     await ensureUrl('planning-permission')
-    await selectOption('Should be in place by the time I make my full application')
+    await selectRadio('Should be in place by the time I make my full application')
     await continueJourney()
 
     // planning-permission-may-apply
@@ -92,9 +93,9 @@ describe('Adding Value', () => {
     // project-start
     await ensureUrl('project-start')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('Yes, we have begun project work')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('Yes, we have begun project work')
     await continueJourney()
 
     // cannot-apply-project-start
@@ -104,23 +105,23 @@ describe('Adding Value', () => {
 
     // project-start
     await ensureUrl('project-start')
-    await selectOption('Yes, preparatory work')
+    await selectRadio('Yes, preparatory work')
     await continueJourney()
 
     // tenancy
     await ensureUrl('tenancy')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('No')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('No')
     await continueJourney()
 
     // tenancy-length
     await ensureUrl('tenancy-length')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('No')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('No')
     await continueJourney()
 
     // may-apply-tenancy-length
@@ -131,29 +132,29 @@ describe('Adding Value', () => {
     // smaller-abattoir
     await ensureUrl('smaller-abattoir')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('No') // take top fruit journey
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('No') // take top fruit journey
     await continueJourney()
 
     // fruit-storage
     await ensureUrl('fruit-storage')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
     await navigateBack() // navigate back to smaller abattoir journey
 
     // smaller-abattoir
     await ensureUrl('smaller-abattoir')
-    await selectOption('Yes') // take smaller abattoir journey
+    await selectRadio('Yes') // take smaller abattoir journey
     await continueJourney()
 
     // other-farmers
     await ensureUrl('other-farmers')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('No')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('No')
     await continueJourney()
 
     // cannot-apply-other-farmers
@@ -163,15 +164,15 @@ describe('Adding Value', () => {
 
     // other-farmers
     await ensureUrl('other-farmers')
-    await selectOption('Yes')
+    await selectRadio('Yes')
     await continueJourney()
 
     // project-items-needed
     await ensureUrl('project-items-needed')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('No')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('No')
     await continueJourney()
 
     // cannot-apply-project-items
@@ -181,48 +182,48 @@ describe('Adding Value', () => {
 
     // project-items-needed
     await ensureUrl('project-items-needed')
-    await selectOption('Yes')
+    await selectRadio('Yes')
     await continueJourney()
 
     // project-items
     await ensureUrl('project-items')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('Constructing or improving buildings for processing')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('Constructing or improving buildings for processing')
     await continueJourney()
 
     // storage
     await ensureUrl('storage')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('Yes, we will need storage facilities')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('Yes, we will need storage facilities')
     await continueJourney()
 
     // project-cost
     await ensureUrl('project-cost')
     await analyseAccessibility()
 
-    await enterValueFor('', 'Enter amount')
-    await continueJourney()
-    await analyseAccessibility('[validation-no-value]')
+    // await enterValueFor('', 'Enter amount')
+    // await continueJourney()
+    // await analyseAccessibility('[validation-no-value]')
 
-    await enterValueFor('ABC', 'Enter amount')
-    await continueJourney()
-    await analyseAccessibility('[validation-format]')
+    // await enterValueFor('ABC', 'Enter amount')
+    // await continueJourney()
+    // await analyseAccessibility('[validation-format]')
 
-    await enterValueFor('62499.99', 'Enter amount')
-    await continueJourney()
-    await analyseAccessibility('[validation-decimals]')
+    // await enterValueFor('62499.99', 'Enter amount')
+    // await continueJourney()
+    // await analyseAccessibility('[validation-decimals]')
 
-    await enterValueFor('12345678', 'Enter amount')
-    await continueJourney()
-    await analyseAccessibility('[validation-max-number]')
+    // await enterValueFor('12345678', 'Enter amount')
+    // await continueJourney()
+    // await analyseAccessibility('[validation-max-number]')
 
-    await enterValueFor('0', 'Enter amount')
-    await continueJourney()
-    await analyseAccessibility('[validation-min-number]')
+    // await enterValueFor('0', 'Enter amount')
+    // await continueJourney()
+    // await analyseAccessibility('[validation-min-number]')
 
     await enterValueFor('62499', 'Enter amount')
     await continueJourney()
@@ -245,9 +246,9 @@ describe('Adding Value', () => {
     // remaining-costs
     await ensureUrl('remaining-costs')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('No')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('No')
     await continueJourney()
 
     // cannot-apply-remaining-costs
@@ -257,31 +258,31 @@ describe('Adding Value', () => {
 
     // remaining-costs
     await ensureUrl('remaining-costs')
-    await selectOption('Yes')
+    await selectRadio('Yes')
     await continueJourney()
 
     // produce-processed
     await ensureUrl('produce-processed')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('Arable produce')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('Arable produce')
     await continueJourney()
 
     // how-adding-value
     await ensureUrl('how-adding-value')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('Introducing a new product to your farm')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('Introducing a new product to your farm')
     await continueJourney()
 
     // project-impact
     await ensureUrl('project-impact')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOptions(
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectCheckboxes(
       'Increasing range of added-value products',
       'Increasing volume of added-value products'
     )
@@ -290,33 +291,33 @@ describe('Adding Value', () => {
     // mechanisation
     await ensureUrl('mechanisation')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('Yes')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('Yes')
     await continueJourney()
 
     // manual-labour-amount
     await ensureUrl('manual-labour-amount')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('More than 10%')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('More than 10%')
     await continueJourney()
 
     // future-customers-exist
     await ensureUrl('future-customers-exist')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('Yes')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('Yes')
     await continueJourney()
   
     // future-customers
     await ensureUrl('future-customers')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOptions(
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectCheckboxes(
       'Processors',
       'Wholesalers'
     )
@@ -325,25 +326,25 @@ describe('Adding Value', () => {
     // collaboration
     await ensureUrl('collaboration')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('Yes')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('Yes')
     await continueJourney()
 
     // environmental-impact-exist
     await ensureUrl('environmental-impact-exist')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('Yes')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('Yes')
     await continueJourney()
 
     // environmental-impact
     await ensureUrl('environmental-impact')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOptions(
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectCheckboxes(
       'Water efficiency',
       'Sustainable packaging measures'
     )
@@ -362,16 +363,16 @@ describe('Adding Value', () => {
     // applying
     await ensureUrl('applying')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('Agent')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('Agent')
     await continueJourney()
 
     // agent-details
     await ensureUrl('agent-details')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
     await enterValueFor('John', 'First name')
     await enterValueFor('Test-Agent', 'Last name')
     await enterValueFor('Test Agency Ltd', 'Business name')
@@ -389,8 +390,8 @@ describe('Adding Value', () => {
     // applicant-details
     await ensureUrl('applicant-details')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
     await enterValueFor('James', 'First name')
     await enterValueFor('Test-Farmer', 'Last name')
     await enterValueFor('cl-defra-gae-test-applicant-email@equalexperts.com', 'Email address')

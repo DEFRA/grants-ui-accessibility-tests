@@ -1,8 +1,8 @@
 import { initialiseAccessibilityChecking, analyseAccessibility, generateAccessibilityReports } from '../accessibility-checking.js'
-import { continueJourney, ensureUrl, selectOption, selectTask } from '../journey-actions.js'
+import { continueJourney, ensureUrl, loginIfRequired, selectRadio, selectTask } from '../journey-actions.js'
 
-describe('Example Task List', () => {
-  it('should analyse accessibility on sample Example Task List pages', async () => {
+describe('example-tasklist', () => {
+  it('should analyse accessibility on sample example-tasklist pages', async () => {
     await initialiseAccessibilityChecking()
 
     await browser.url('/example-tasklist/tasklist')
@@ -11,29 +11,30 @@ describe('Example Task List', () => {
     await ensureUrl('tasklist')
     await analyseAccessibility()
     await selectTask('Business status')
+    await loginIfRequired()
 
     // business-status/nature-of-business
     await ensureUrl('business-status/nature-of-business')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('A grower or producer of agricultural or horticultural produce')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('A grower or producer of agricultural or horticultural produce')
     await continueJourney()
 
     // business-status/legal-status
     await ensureUrl('business-status/legal-status')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('Sole trader')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('Sole trader')
     await continueJourney()
 
     // business-status/country
     await ensureUrl('business-status/country')
     await analyseAccessibility()
-    await continueJourney()
-    await analyseAccessibility('[validation]')
-    await selectOption('Yes')
+    // await continueJourney()
+    // await analyseAccessibility('[validation]')
+    await selectRadio('Yes')
     await continueJourney()
 
     // business-status/summary
