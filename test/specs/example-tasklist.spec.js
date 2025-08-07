@@ -6,12 +6,12 @@ describe('example-tasklist', () => {
     await initialiseAccessibilityChecking()
 
     await browser.url('/example-tasklist/tasklist')
+    await loginIfRequired()
 
     // tasklist
     await ensureUrl('tasklist')
     await analyseAccessibility()
     await selectTask('Business status')
-    await loginIfRequired()
 
     // business-status/nature-of-business
     await ensureUrl('business-status/nature-of-business')
