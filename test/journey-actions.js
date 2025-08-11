@@ -28,7 +28,7 @@ export async function loginIfRequired() {
     }, 5)
 
     if (isLoginRequired) {
-        await $(`//input[@id='crn']`).setValue('1100664912')
+        await $(`//input[@id='crn']`).setValue('1101008164')
         await $(`//input[@id='password']`).setValue(process.env.DEFRA_ID_USER_PASSWORD)
         await $(`//button[@type='submit']`).click()
     }
