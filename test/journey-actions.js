@@ -1,4 +1,8 @@
-import { pollForSuccess } from "./polling"
+import Backend from './backend'
+
+export async function clearStorageForSbiAndGrant(sbi, grantCode) {
+  await Backend.deleteState(sbi, grantCode)
+}
 
 export async function confirmAndSend() {
     await $(`//button[contains(text(),'Confirm and send')]`).click()
@@ -22,16 +26,10 @@ export async function enterValueFor(text, label) {
     }
 }
 
-export async function loginIfRequired() {
-    const isLoginRequired = await pollForSuccess(async () => {
-        return await $(`//h1/span[contains(text(), 'Sign in')]`).isExisting()
-    }, 5)
-
-    if (isLoginRequired) {
-        await $(`//input[@id='crn']`).setValue('1101008164')
-        await $(`//input[@id='password']`).setValue(process.env.DEFRA_ID_USER_PASSWORD)
-        await $(`//button[@type='submit']`).click()
-    }
+export async function loginAsCrn(crn) {
+    await $(`//input[@id='crn']`).setValue(crn)
+    await $(`//input[@id='password']`).setValue(process.env.DEFRA_ID_USER_PASSWORD)
+    await $(`//button[@type='submit']`).click()
 }
 
 export async function navigateBack() {

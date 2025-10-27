@@ -1,7 +1,8 @@
 import { generateAccessibilityReportIndex } from './test/accessibility-checking.js'
 
 export const config = {
-    baseUrl: `https://grants-ui.test.cdp-int.defra.cloud`,
+    baseUrl: `http://localhost:3000`,
+    baseBackendUrl: `http://localhost:3001`,
     maxInstances: 1,
     capabilities: [{
         browserName: 'chrome'

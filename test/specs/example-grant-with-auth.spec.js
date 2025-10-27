@@ -1,12 +1,29 @@
 import { initialiseAccessibilityChecking, analyseAccessibility, generateAccessibilityReports } from '../accessibility-checking.js'
-import { continueJourney, ensureUrl, enterValueFor, loginIfRequired, navigateBack, selectCheckboxes, selectRadio, setAutocompleteField, setDatePartsField, setMonthYearField, setTextarea, startJourney, submitApplication } from '../journey-actions.js'
+import {
+  clearStorageForSbiAndGrant,
+  confirmAndSend,
+  continueJourney,
+  ensureUrl,
+  enterValueFor,
+  loginAsCrn,
+  navigateBack,
+  selectCheckboxes,
+  selectRadio,
+  setAutocompleteField,
+  setDatePartsField,
+  setMonthYearField,
+  setTextarea,
+  startJourney
+} from '../journey-actions.js'
 
 describe('example-grant-with-auth', () => {
   it('should analyse accessibility on all example-grant-with-auth pages', async () => {
     await initialiseAccessibilityChecking()
 
+    await clearStorageForSbiAndGrant(106368327, 'example-grant-with-auth')
+
     await browser.url('/example-grant-with-auth/start')
-    await loginIfRequired()
+    await loginAsCrn(1101007966)
 
     // start
     await ensureUrl('start')
@@ -104,12 +121,17 @@ describe('example-grant-with-auth', () => {
     // summary
     await ensureUrl('summary')
     await analyseAccessibility()
-    await submitApplication()
+    await continueJourney()
 
-    // status
-    await ensureUrl('status')
+    // declaration
+    await ensureUrl('declaration')
     await analyseAccessibility()
+    await confirmAndSend()
 
+    // confirmation
+    await ensureUrl('confirmation')
+    await analyseAccessibility()
+    
     generateAccessibilityReports('example-grant-with-auth')
   });
 });
