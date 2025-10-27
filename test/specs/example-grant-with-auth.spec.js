@@ -49,7 +49,7 @@ describe('example-grant-with-auth', () => {
 
     // autocomplete-field
     await ensureUrl('autocomplete-field')
-    //await analyseAccessibility()
+    await analyseAccessibility()
     await setAutocompleteField('Country', 'England')
     await continueJourney()
 
