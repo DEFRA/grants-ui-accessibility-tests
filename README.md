@@ -1,4 +1,4 @@
-# Grants UI Accessibility Tests
+# grants-ui-accessibility-tests
 
 This is an automated accessibility test suite for Defra's `grants-ui` platform, maintained by the Grants Application Enablement (GAE) team.
 

@@ -13,6 +13,7 @@ export async function continueJourney() {
 }
 
 export async function ensureUrl(url) {
+    console.log('Checking URL:', url)
     await expect(browser).toHaveUrl(expect.stringContaining(url))
 }
 
