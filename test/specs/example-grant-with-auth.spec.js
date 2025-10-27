@@ -30,28 +30,28 @@ describe('example-grant-with-auth', () => {
     await analyseAccessibility()
     await startJourney()
 
-    // // yes-no-field
-    // await ensureUrl('yes-no-field')
-    // await analyseAccessibility()
-    // await selectRadio('No')
-    // await continueJourney()
+    // yes-no-field
+    await ensureUrl('yes-no-field')
+    await analyseAccessibility()
+    await selectRadio('No')
+    await continueJourney()
 
-    // // terminal-page
-    // await ensureUrl('terminal-page')
-    // await analyseAccessibility()
-    // await navigateBack()
+    // terminal-page
+    await ensureUrl('terminal-page')
+    await analyseAccessibility()
+    await navigateBack()
 
-    // // yes-no-field
-    // await ensureUrl('yes-no-field')
-    // await analyseAccessibility()
-    // await selectRadio('Yes')
-    // await continueJourney()
+    // yes-no-field
+    await ensureUrl('yes-no-field')
+    await analyseAccessibility()
+    await selectRadio('Yes')
+    await continueJourney()
 
-    // // autocomplete-field
-    // await ensureUrl('autocomplete-field')
-    // await analyseAccessibility()
-    // await setAutocompleteField('Country', 'England')
-    // await continueJourney()
+    // autocomplete-field
+    await ensureUrl('autocomplete-field')
+    await analyseAccessibility()
+    await setAutocompleteField('Country', 'England')
+    await continueJourney()
 
     // // radios-field
     // await ensureUrl('radios-field')
