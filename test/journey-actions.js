@@ -57,6 +57,7 @@ export async function setAutocompleteField(label, value) {
 
     await inputSelector.click()
     await browser.keys('Backspace')
+    await inputSelector.click()
     await browser.keys(value.split(''))
     await optionSelector.click()
 }

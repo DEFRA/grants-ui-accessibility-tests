@@ -47,11 +47,11 @@ describe('example-grant-with-auth', () => {
     await selectRadio('Yes')
     await continueJourney()
 
-    // // autocomplete-field
-    // await ensureUrl('autocomplete-field')
-    // await analyseAccessibility()
-    // await setAutocompleteField('Country', 'England')
-    // await continueJourney()
+    // autocomplete-field
+    await ensureUrl('autocomplete-field')
+    await analyseAccessibility()
+    await setAutocompleteField('Country', 'England')
+    await continueJourney()
 
     // // radios-field
     // await ensureUrl('radios-field')
