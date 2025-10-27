@@ -53,84 +53,84 @@ describe('example-grant-with-auth', () => {
     await setAutocompleteField('Country', 'England')
     await continueJourney()
 
-    // // radios-field
-    // await ensureUrl('radios-field')
-    // await analyseAccessibility()
-    // await selectRadio('Option one')
-    // await continueJourney()
+    // radios-field
+    await ensureUrl('radios-field')
+    await analyseAccessibility()
+    await selectRadio('Option one')
+    await continueJourney()
 
-    // // conditional-page
-    // await ensureUrl('conditional-page')
-    // await analyseAccessibility()
-    // await continueJourney()
+    // conditional-page
+    await ensureUrl('conditional-page')
+    await analyseAccessibility()
+    await continueJourney()
 
-    // // checkboxes-field
-    // await ensureUrl('checkboxes-field')
-    // await analyseAccessibility()
-    // await selectCheckboxes(
-    //   'Option two',
-    //   'Option three'
-    // )
-    // await continueJourney()
+    // checkboxes-field
+    await ensureUrl('checkboxes-field')
+    await analyseAccessibility()
+    await selectCheckboxes(
+      'Option two',
+      'Option three'
+    )
+    await continueJourney()
 
-    // // number-field
-    // await ensureUrl('number-field')
-    // await analyseAccessibility()
-    // await enterValueFor('100000', 'Enter amount')
-    // await continueJourney()
+    // number-field
+    await ensureUrl('number-field')
+    await analyseAccessibility()
+    await enterValueFor('100000', 'Enter amount')
+    await continueJourney()
 
-    // // date-parts-field
-    // await ensureUrl('date-parts-field')
+    // date-parts-field
+    await ensureUrl('date-parts-field')
     // await analyseAccessibility()
-    // const date = new Date()
-    // date.setDate(date.getDate() + 7)
-    // await setDatePartsField('datePartsField', date)
-    // await continueJourney()
+    const date = new Date()
+    date.setDate(date.getDate() + 7)
+    await setDatePartsField('datePartsField', date)
+    await continueJourney()
 
-    // // month-year-field
-    // await ensureUrl('month-year-field')
+    // month-year-field
+    await ensureUrl('month-year-field')
     // await analyseAccessibility()
-    // await setMonthYearField('monthYearField', '08', '2025')
-    // await continueJourney()
+    await setMonthYearField('monthYearField', '08', '2025')
+    await continueJourney()
 
-    // // select-field
-    // await ensureUrl('select-field')
+    // select-field
+    await ensureUrl('select-field')
     // await analyseAccessibility()
-    // await enterValueFor('Option three', 'Select option')
-    // await continueJourney()
+    await enterValueFor('Option three', 'Select option')
+    await continueJourney()
 
-    // // multiline-text-field
-    // await ensureUrl('multiline-text-field')
-    // await analyseAccessibility()
-    // await setTextarea('multilineTextField', 'Loren ipsum')
-    // await continueJourney()
+    // multiline-text-field
+    await ensureUrl('multiline-text-field')
+    await analyseAccessibility()
+    await setTextarea('multilineTextField', 'Loren ipsum')
+    await continueJourney()
 
-    // // multi-field-form
-    // await ensureUrl('multi-field-form')
-    // await analyseAccessibility()
-    // await enterValueFor('James Test-Farmer', 'Name')
-    // await enterValueFor('cl-defra-gae-test-applicant-email@equalexperts.com', 'Email address')
-    // await enterValueFor('07777 123456', 'Mobile number')
-    // await enterValueFor('Test Farm', 'Address line 1')
-    // await enterValueFor('Cogenhoe', 'Address line 2 (optional)')
-    // await enterValueFor('Northampton', 'Town')
-    // await enterValueFor('Northamptonshire', 'County (optional)')
-    // await enterValueFor('NN7 1NN', 'Postcode')
-    // await continueJourney()
+    // multi-field-form
+    await ensureUrl('multi-field-form')
+    await analyseAccessibility()
+    await enterValueFor('James Test-Farmer', 'Name')
+    await enterValueFor('cl-defra-gae-test-applicant-email@equalexperts.com', 'Email address')
+    await enterValueFor('07777 123456', 'Mobile number')
+    await enterValueFor('Test Farm', 'Address line 1')
+    await enterValueFor('Cogenhoe', 'Address line 2 (optional)')
+    await enterValueFor('Northampton', 'Town')
+    await enterValueFor('Northamptonshire', 'County (optional)')
+    await enterValueFor('NN7 1NN', 'Postcode')
+    await continueJourney()
 
-    // // summary
-    // await ensureUrl('summary')
-    // await analyseAccessibility()
-    // await continueJourney()
+    // summary
+    await ensureUrl('summary')
+    await analyseAccessibility()
+    await continueJourney()
 
-    // // declaration
-    // await ensureUrl('declaration')
-    // await analyseAccessibility()
-    // await confirmAndSend()
+    // declaration
+    await ensureUrl('declaration')
+    await analyseAccessibility()
+    await confirmAndSend()
 
-    // // confirmation
-    // await ensureUrl('confirmation')
-    // await analyseAccessibility()
+    // confirmation
+    await ensureUrl('confirmation')
+    await analyseAccessibility()
     
     generateAccessibilityReports('example-grant-with-auth')
   });

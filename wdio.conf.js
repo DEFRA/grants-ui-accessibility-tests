@@ -34,7 +34,7 @@ export const config = {
     }
   ],
   runner: 'local',
-  specs: ['./test/specs/example-grant-with-auth.spec.js'],
+  specs: ['./test/specs/*.spec.js'],
   exclude: [],
   logLevel: 'info',
   bail: 0,
