@@ -81,7 +81,7 @@ describe('example-grant-with-auth', () => {
 
     // date-parts-field
     await ensureUrl('date-parts-field')
-    // await analyseAccessibility()
+    await analyseAccessibility()
     const date = new Date()
     date.setDate(date.getDate() + 7)
     await setDatePartsField('datePartsField', date)
@@ -89,13 +89,13 @@ describe('example-grant-with-auth', () => {
 
     // month-year-field
     await ensureUrl('month-year-field')
-    // await analyseAccessibility()
+    await analyseAccessibility()
     await setMonthYearField('monthYearField', '08', '2025')
     await continueJourney()
 
     // select-field
     await ensureUrl('select-field')
-    // await analyseAccessibility()
+    await analyseAccessibility()
     await enterValueFor('Option three', 'Select option')
     await continueJourney()
 
